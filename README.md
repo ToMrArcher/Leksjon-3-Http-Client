@@ -1,3 +1,5 @@
+[![Java CI with Maven](https://github.com/ToMrArcher/Leksjon-3-Http-Client/actions/workflows/maven.yml/badge.svg)](https://github.com/ToMrArcher/Leksjon-3-Http-Client/actions/workflows/maven.yml)
+
 # Leksjon-3-Http-Client
 
 Simple HTTP Client. 
