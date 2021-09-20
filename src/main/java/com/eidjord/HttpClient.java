@@ -6,12 +6,12 @@ import java.util.HashMap;
 
 public class HttpClient {
 
-    private HashMap headers;
+    private final HashMap<String, String> headers;
     private int statusCode;
     private String body;
 
     public HttpClient(String host, int port, String site) throws IOException {
-        headers = new HashMap();
+        headers = new HashMap<>();
         Socket socket = new Socket(host, port);
         String request = "GET /" + site + " HTTP/1.1\r\n" +
                          "Host: " + host + "\r\n" +
@@ -32,11 +32,10 @@ public class HttpClient {
         return line.toString();
     }
 
-    private int fintStatusCode(Socket socket) throws IOException {
+    private void fintStatusCode(Socket socket) throws IOException {
         String statusLine = readLine(socket);
         String[] arr = statusLine.split(" ");
-        statusCode = Integer.valueOf(arr[1]);
-        return Integer.valueOf(arr[1]);
+        statusCode = Integer.parseInt(arr[1]);
     }
 
     public static void main(String[] args) throws IOException {
@@ -67,7 +66,7 @@ public class HttpClient {
     }
 
     public String getHeader(String header) {
-        return (String) headers.get(header);
+        return headers.get(header);
     }
 
     public String getBody() {
