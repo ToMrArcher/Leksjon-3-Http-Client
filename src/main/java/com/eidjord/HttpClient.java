@@ -38,11 +38,6 @@ public class HttpClient {
         statusCode = Integer.parseInt(arr[1]);
     }
 
-    public static void main(String[] args) throws IOException {
-        HttpClient httpClient = new HttpClient("httpbin.org", 80, "html");
-        System.out.println(httpClient.getBody());
-    }
-
     private void findHeaders(Socket socket) throws IOException {
         String line;
         while(!(line = readLine(socket)).isEmpty()){
